@@ -1,0 +1,20 @@
+Function.prototype.myCall = function(context, ...arg) {
+    let fn = this;
+    let randomKey = Math.random().toString();
+    context[randomKey] = fn(...arg);
+}
+
+let John = {
+    name: 'John',
+    age: 28,
+    getDetails: function(a, b) {
+        console.log("My name is " + this.name + " and I\'m " + this.age + " years old." + " Some extra details " + a + " " + b);
+    }
+}
+
+let Sam = {
+    name: 'Sam',
+    age: 26,
+}
+
+John.getDetails.call(Sam, 'hello', 'world');
