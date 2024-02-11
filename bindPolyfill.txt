@@ -1,0 +1,22 @@
+Function.prototype.myBind = function(context, ...arg1) {
+    let fn = this;
+    return function(...arg2) {
+        let randomKey = Math.random().toString();
+        context[randomKey] = fn(...arg1, ...arg2);
+    }
+}
+
+let John = {
+    name: 'John',
+    age: 28,
+    getDetails: function(a, b) {
+        console.log("My name is " + this.name + " and I\'m " + this.age + " years old." + " Some extra details " + a + " " + b);
+    }
+}
+
+let Sam = {
+    name: 'Sam',
+    age: 26,
+}
+
+John.getDetails.myBind(Sam, 'Hello')('World')
