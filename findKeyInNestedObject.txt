@@ -1,0 +1,12 @@
+function findKey(obj, targetKey) {
+	for(let key in obj) {
+		if(key === targetKey) return obj[key];
+		else if(typeof obj[key] === 'object') {
+			let result = findKey(obj[key], targetKey);
+			if(result !== undefined) {
+				return result;
+			}
+		}
+	}
+	return undefined;
+}
