@@ -1,0 +1,16 @@
+Array.prototype.myReduce = function(cb, initial) {
+    let acc = initial;
+    for(let i = 0; i < this.length; i++) {
+        if(typeof(acc) === "undefined") {
+            acc = this[i];
+        } else {
+            acc = cb(acc, this[i]);
+        }
+    }
+    return acc;
+}
+
+let arr = [1, 2, 3];
+let res = arr.myReduce((acc, curr) => {
+    return acc+curr;
+}, 0)
