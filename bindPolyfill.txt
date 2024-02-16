@@ -2,7 +2,8 @@ Function.prototype.myBind = function(context, ...arg1) {
     let fn = this;
     return function(...arg2) {
         let randomKey = Math.random().toString();
-        context[randomKey] = fn(...arg1, ...arg2);
+        context[randomKey] = fn;
+        return context[randomKey](...arg1, ...arg2);
     }
 }
 

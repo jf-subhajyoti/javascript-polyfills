@@ -1,7 +1,8 @@
 Function.prototype.myCall = function(context, ...arg) {
     let fn = this;
     let randomKey = Math.random().toString();
-    context[randomKey] = fn(...arg);
+    context[randomKey] = fn;
+    return context[randomKey](...arg);
 }
 
 let John = {
@@ -17,4 +18,4 @@ let Sam = {
     age: 26,
 }
 
-John.getDetails.call(Sam, 'hello', 'world');
+John.getDetails.myCall(Sam, 'hello', 'world');

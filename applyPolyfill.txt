@@ -17,4 +17,4 @@ let Sam = {
     age: 26,
 }
 
-John.getDetails.call(Sam, 'hello', 'world');
+John.getDetails.myApply(Sam, ['hello', 'world']);
