@@ -1,7 +1,8 @@
 Function.prototype.myApply = function(context, arg) {
     let fn = this;
     let randomKey = Math.random().toString();
-    context[randomKey] = fn(...arg);
+    context[randomKey] = fn;
+    context[randomKey](...arg);
 }
 
 let John = {
